@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'retry.css' %}">
+</head>
+<body>
+    {% if messages %}
+    <ul class="messages">    
+    {% for message in messages %}
+        {% if 'register' in message.extra_tags %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endif %}  
+    {% endfor %}
+    </ul>
+    {% endif %}
+    <div id="wrapper">
+        <h1>Retry Login</h1>
+        <img src="static/img/S5_Team_Work.jpg">
+            <h5>Your login credentials are incorrect.  Please try logging in again.</h5>
+            <div class="login"> 
+                <form action="retry" method="post" class="login_form">
+                {% csrf_token %}
+                    <div class="login-group">
+                        <label for="username">Username:</label>
+                        <input type="text" name="username" id="username">
+                    </div>
+                    <div class="login-group">
+                        <label for="password">Password:</label>
+                        <input type="text" name="password" id="password">
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+    </div>
+</body>
+</html>

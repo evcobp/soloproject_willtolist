@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Another Task</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styleanothertask.css' %}">
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="another_task_form">
+      <img src="/static/img/whatsnextpng.png"/>
+        <form action='another_task/<int:my_val>' method='post' id="another_task_form">
+        {% csrf_token %}
+          <div class="container">
+            <label for="another_task">Would you like to enter another task?</label>
+            <button><a href="/create_task">Yes</a></button>
+            <button><a href="/task_list">No</a><button>
+          </div>
+        </form>
+      </div>
+      <div class="task_form">
+        <form='create_task' method='post' id="task_form">
+        {% csrf_token %}
+          <div class="container">
+            <label for="task_name">Task:</label>
+            <input type="text" name="task_name" id="task_name">
+          </div>  
+          <div class="container">
+            <label for="due_date">Due Date:</label>
+            <input type="date" name="due_date" id="due_date">
+          </div>
+          <div class="container">
+            <label for="notes">Notes:</label>
+            <input type="textarea" name="notes" id="notes">
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>

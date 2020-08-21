@@ -1,0 +1,61 @@
+#wrapper{
+    background-color: #2cb3f3;
+    font-family: Menlo, monospace;
+    height: 1500px;
+    width: 100%;
+    padding-top: 25px;
+}
+
+h1 { 
+    color: #ffffff;
+    display: block;
+    margin: auto;
+    width: 20%;
+}
+
+img {
+    display: block;
+    width: 30%;
+    height: 300px;
+    margin: 20px auto;
+    border-radius: 50%;
+}
+
+h2 {
+    font-size: 36px;
+    margin-left: 10px;
+}
+
+.registration {
+    display: block;
+    margin: auto;
+    width: 45%;
+    font-size: 24px;
+    color: white;
+    padding: 10px;
+}
+
+.form-group {
+    column-count: 2;
+    font-size: 24px;
+    color: white;
+}
+
+label {
+    display: block;
+    margin: auto;
+}
+input {
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+    padding: 10px 0px 10px 0px;
+}
+
+button {
+    background-color: #033678;
+    color: #ffffff;
+    padding: 5px 10px 5px 10px;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-left: 400px;
+}

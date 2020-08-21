@@ -1,0 +1,59 @@
+#wrapper {
+    background-color: #ffffff;
+    font-family: Menlo, monospace;
+    height: 100%;
+    width: 100%;
+    padding-top: 25px;
+}
+img {
+    display: block;
+    margin: auto;
+    height: 350px;
+    width: 50%; 
+
+}
+
+h1 { 
+    display: block;
+    margin: 15px auto;
+    width: 30%;
+    color:blue;
+    font-size: 44px;
+    text-shadow: 2px 2px #2bb3f3;
+
+}
+
+.main_body {
+    display: block;
+    margin: 35px auto;
+    width: 40%;
+}
+
+p {
+    font-size: 24px;
+}
+
+#login_button {
+    background-color: #2e4663;
+    border: none;
+    padding: 7px 15px 7px 15px;
+}
+
+#login_button, a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+#new_user_button {
+    background-color: #2e4663;
+    border: none;
+    padding: 7px 15px 7px 15px;
+
+}
+
+#new_user_button, a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}

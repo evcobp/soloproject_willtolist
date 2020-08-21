@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Register</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styleregistration.css' %}">
+  </head>
+  <body>
+   {% if messages %}
+    <ul class="messages">    
+        {% for message in messages %}
+            {% if 'register' in message.extra_tags %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endif %}  
+        {% endfor %}
+    </ul>
+    {% endif %} 
+    <div id="wrapper">
+        <h1>Create Your Account.</h1>
+        <img src="static/img/S5_Puzzle_Pieces.jpg">
+            <div class="registration">
+                <form action="/create_user" method="post" class="postData">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="first_name">First Name:</label>
+                        <input type="text" name="first_name" id="first_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Last Name:</label>
+                        <input type="text" name="last_name" id="last_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" name="username" id="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="text" name="password" id="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm_password">Confirm Password:</label>
+                        <input type="text" name="confirm_password" id="confirm_password">
+                    </div>
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+    </div>
+</body>
+</html>
