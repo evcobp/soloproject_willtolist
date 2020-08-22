@@ -12,9 +12,6 @@ def logout(request):
     
     return redirect('/')
 
-def loginpage(request):
-    return render(request, 'login.html')
-
 
 def registration(request):
     return render(request, 'registration.html')
@@ -27,7 +24,7 @@ def login(request):
     else:
         user = User.objects.get(email=request.POST['email'])
         request.session['user_id'] = user.id
-        return redirect('/success')
+        return render(request,'success.html')
     return redirect('/login')
 
 
@@ -46,12 +43,19 @@ def create_user(request):
         return render(request, 'create_task.html')
 
             
-def create_task(request, id):
-    id = request.session['id']
+def create_task(request):
     context = {
-    Task.objects.create(task_name= request.POST['task_name'], due_date= request.POST['due_date'], notes= request.POST['notes'])
-    }
-    return render(request,'create_task', context)
+        Task.objects.create(
+            task_name= request.POST['task_name'], 
+            due_date= request.POST['due_date'], 
+            notes= request.POST['notes'],
+            question_one=request.POST['question_one'],
+            question_two=request.POST['question_two'],
+            question_three=request.POST['question_three'],
+            question_four=request.POST['question_four'],
+            question_five=request.POST['question_five']
+        )}
+    return render(request,'task_list.html', context)
 
 
 def delete_task(request):
@@ -81,12 +85,7 @@ def task_questions(request):
 
 def score(request):
     context = {
-    'question_nine':  request.POST.get('question_one'),
-    'question_two': request.POST.get('question_two'),
-    'question_three': request.POST.get('question_three'),
-    'question_four': request.POST.get('question_four'),
-    'question_five': request.POST.get('question_five')
+        request.POST.get('question_one')+request.POST.get('question_two')+request.POST.get('question_three')+request.POST.get('question_four')+request.POST.get('question_five')
     }
-    
     return HttpResponse(context)
 

@@ -60,7 +60,7 @@ class Task(models.Model):
     question_three = models.IntegerField(default = 1, validators=[MaxValueValidator(10), MinValueValidator(1)])
     question_four = models.IntegerField(default = 1, validators=[MaxValueValidator(10), MinValueValidator(1)])
     question_five = models.IntegerField(default = 1, validators=[MaxValueValidator(10), MinValueValidator(1)])
-    score = ('question_one'+'question_two'+'question_three'+'question_four'+'question_five')
+    score = 'question_one'+'question_two'+'question_three'+'question_four'+'question_five'
     
     def __str__(self):
         return f"{self.task_name} {self.notes} {self.score}"

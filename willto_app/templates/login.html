@@ -21,13 +21,13 @@
         <h1>Login</h1>
         <img src="static/img/notesplanner.jpg">
             <div class="login"> 
-                <form action="login" method="post" class="login_form">
+                <form action="{% url 'login' %}" method="post" class="login_form">
                 {% csrf_token %}
-                    <div class="login-group">
+                    <div>
                         <label for="email">Email:</label>
                         <input type="email" name="email" id="email">
                     </div>
-                    <div class="login-group">
+                    <div>
                         <label for="password">Password:</label>
                         <input type="text" name="password" id="password">
                     </div>

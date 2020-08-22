@@ -47,30 +47,25 @@
               <input type="textarea" name="notes" id="notes">
               </td>
             </tr>
-            <tr>
-              <td>
-              <button type="submit" id="create_task_button">Create</button>
-              </td>
-            </tr>
             </form>
           </table>
           </div>
           <div class="questions">
           <p>Select a score 1 to 10.<br>  For questions, #1-#4...1 is the lowest negative impact, 10 is the highest.<br>
             For question #5, 1 is the highest confidence and 10 is the lowest.</p>
-            <form action='/score' method='post' class="scoreData" name="questionData">
+            <form action='/create_task' method='post' class="scoreData" name="questionData">
             {% csrf_token %}
               <p>1. Score the negative effect to yourself for not completing the task on time.<br></p>
-                <input type="text" name="question_one" id="question_one" placeholder="Score"><br>
+                <input type="number" name="question_one" id="question_one" min="1" max="10" placeholder="Score"><br>
               <p>2. Score the negative effect to others for not completing the task on time.<br></p>
-                <input type="text" name="question_two" id="question_two" placeholder="Score"><br>
+                <input type="number" name="question_two" id="question_two" min="1" max="10" placeholder="Score"><br>
               <p>3. Score how important it is to you to complete the task.<br></p>
-                <input type="text" name="question_three" id="question_three" placeholder="Score"><br>
+                <input type="number" name="question_three" id="question_three" min="1" max="10" placeholder="Score"><br>
               <p>4. Score how important it is to others to complete the task.<br></p>
-                <input type="text" name="question_four" id="question_four" placeholder="Score"><br>
+                <input type="number" name="question_four" id="question_four" min="1" max="10" placeholder="Score"><br>
               <p>5. Score your confidence in your ability to complete the task.<br></p>
-                <input type="text" name="question_five" id="question_five" placeholder="Score"><br>
-                <button type="submit" id="question_submit_button">Score Task</></button>
+                <input type="number" name="question_five" id="question_five" min="1" max="10" placeholder="Score"><br>
+                <button type="submit" id="question_submit_button">Create and Score</></button>
             </form>
                 <button id="view_tasks_button"><a href="/task_list">Go To Tasks</a></button>
           </div>
