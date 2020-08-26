@@ -13,9 +13,9 @@
         <img src="/static/img/S5_Files.jpg">
           <div class="last_task">
             <h3>Current Task</h3>
-            <h5>Task: {{show_task}}</h5>
-            <h5>Due Date: {{show_due_date}}</h5>
-            <h5>Notes: {{show_notes}}</h5>
+            <h5>Task: {{ new_task.task_name }}</h5>
+            <h5>Due Date: {{ new_task.due_date }}</h5>
+            <h5>Notes: {{ new_task.notes }}</h5>
           </div>
           <script>
             var hiddenBox = $( ".last_task" );
@@ -25,7 +25,7 @@
           </script>
           <div class='tasks'>
             <table>
-              <form action='/create_task' method='post' class="postData" name="postData">
+              <form action='create_task' method='post' name="task_form">
               {% csrf_token %}
               <tr> 
                 <th>

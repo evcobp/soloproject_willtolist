@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
-from .models import User, Task
+from willto_app.models import User, Task
 from django.contrib import messages
+from django.utils.datastructures import MultiValueDictKeyError
 import bcrypt
 
 # Create your views here.
@@ -19,7 +20,7 @@ def registration_page(request):
 def registration(request):
     errors = User.objects.validate(request.POST)
     if errors:
-        for field, value in errors.itmes():
+        for field, value in errors.items():
             messages.error(request, value, extra_tags='register')
         return redirect('/registration_page')
     new_user = User.objects.register(request.POST)
@@ -60,19 +61,19 @@ def create_user(request):
         return render(request, 'task_list.html')
 
             
-def create_task(request):
-    context = {
-        Task.objects.create(
-            task_name= request.POST['task_name'], 
-            due_date= request.POST['due_date'], 
-            notes= request.POST['notes'],
-            question_one=request.POST['question_one'],
-            question_two=request.POST['question_two'],
-            question_three=request.POST['question_three'],
-            question_four=request.POST['question_four'],
-            question_five=request.POST['question_five']
-        )}
-    return render(request,'task_list.html', context)
+#def create_task(request):
+    #return Task.objects.create(
+        #task_name= 'task_name'], 
+        #due_date= request.POST['due_date'], 
+        #notes= request.POST['notes'],
+        #question_one=request.POST['question_one'],
+        #question_two=request.POST['question_two'],
+        #question_three=request.POST['question_three'],
+        #question_four=request.POST['question_four'],
+        #question_five=request.POST['question_five']
+    #)
+    
+    return render(request,'task_list.html')
 
 
 def delete_task(request):
@@ -80,7 +81,13 @@ def delete_task(request):
 
     
 def new_task(request):
-    return render(request,'new_task.html')
+    new_task = Task.objects.last()
+    context = {
+            'task_name' : 'new_task.task_name',
+            'due_date' : 'new_task.due-date',
+            'notes' : 'new_task.notes'
+        }
+    return render(request,'new_task.html', context)
 
 
 def task_list(request):

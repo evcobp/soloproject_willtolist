@@ -10,23 +10,23 @@
   <body>
       <div id="wrapper">
         <div class="container">
-          <h2>Your Will To</h2>
+          <h2>Your Will To List</h2>
           <table id="haveToTable" style="width:75%">
             <caption>Have To</caption>
             <tr>
               <th colspan="4">Task</th>
-              <th colspan="4">Due Date</th>
+              <th width=15%>Due Date</th>
               <th colspan="4">Notes</th>
-              <th>Status</th>
+              <th width=10%>Complete</th>
             </tr>
-            {% for task in all_tasks %}
+            
             <tr>
                 <td class="task_name_one" colspan="4">{{task.task_name}}</td>
-                <td class="due_date_one" colspan="4">{{task.due_date}}</td>
+                <td class="due_date_one" width=15%>{{task.due_date}}</td>
                 <td class="notes_one" colspan="4">{{task.notes}}</td>
-                <td class="input_one"><input type="checkbox"></td>
+                <td class="input_one" width=10%><input type="checkbox"></td>
             </tr>
-            {% endfor %}
+            
           </table>
             <script>
             function createTableRow() {
@@ -44,39 +44,39 @@
             <caption>Need To</caption>
             <tr>
               <th colspan="4">Task</th>
-              <th colspan="4">Due Date</th>
+              <th width=15%>Due Date</th>
               <th colspan="4">Notes</th>
-              <th>Status</th>
+              <th width=10%>Complete</th>
             </tr>
-            {% for task in all_tasks %}
+            
             <tr>
                 <td class="task_name_one" colspan="4">{{task.task_name}}</td>
-                <td class="due_date_one" colspan="4">{{task.due_date}}</td>
+                <td class="due_date_one" width=15%>{{task.due_date}}</td>
                 <td class="notes_one" colspan="4">{{task.notes}}</td>
-                <td class="input_one"><input type="checkbox"></td>
+                <td class="input_one" width=10%><input type="checkbox"></td>
             </tr>
-            {% endfor %}
+            
           </table>
           <table id="wantToTable" style="width:75%">
             <caption>Want To</caption>
             <tr>
               <th colspan="4">Task</th>
-              <th colspan="4">Due Date</th>
+              <th width=15%>Due Date</th>
               <th colspan="4">Notes</th>
-              <th>Status</th>
+              <th width=10%>Complete</th>
             </tr>
-            {% for task in all_tasks %}
+            
             <tr>
                 <td class="task_name_one" colspan="4">{{task.task_name}}</td>
-                <td class="due_date_one" colspan="4">{{task.due_date}}</td>
+                <td class="due_date_one" width=15%>{{task.due_date}}</td>
                 <td class="notes_one" colspan="4">{{task.notes}}</td>
-                <td class="input_one"><input type="checkbox"></td>
+                <td class="input_one" width=10%><input type="checkbox"></td>
             </tr>
-            {% endfor %}
+            
           </table>
         </div>
             <div class="buttons">
-              <button id="new_task_button"><a href="/create_task">Create Task</a></button>
+              <button id="new_task_button"><a href="/new_task">Create Task</a></button>
               <button id="logout_button"><a href="/logout">Logout</a></button>
             </div>
       </div>
