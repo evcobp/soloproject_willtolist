@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'stylelogin_page.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        <img src="static/img/S2_Business_Couple.jpg">
+        {% if messages %}   
+        {% for message in messages %}
+        {% if 'logout' in message.extra_tags %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>   
+        {% endif %}  
+        {% endfor %}
+        {% endif %}
+        <div class="main">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                {% if 'log_in' in message.extra_tags %}
+                <li {% if message.tags %} class="{{ message.tags }}"  {% endif %}>{{ message }}</li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <h1>Login</h1>
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <div class="user_login"> 
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="text" name="password" id="password">
+                </div>
+                <button type="submit">Login</button>
+            </div>
+        </form>
+        </div>
+        <div class="last_message"
+            <>Do you have the will? <a href="{% url 'registration_page'  %}">Register</p></a>
+            {% if messages %}
+            {% for message in messages %}
+            {% if 'signup' in message.extra_tags %}
+            <div class="alert alert-success" role="alert">{{ message }}</div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,32 +1,49 @@
 from django.shortcuts import render, redirect, HttpResponse
 from .models import User, Task
 from django.contrib import messages
-
+import bcrypt
 
 # Create your views here.
-def index(request):
-    return render(request, 'index.html')
+def login_page(request):
+    context = {
+        'users': User.objects.get_all_by_email()
+    }
+    return render(request, 'login_page.html', context)
 
-def logout(request):
-    request.session.clear()
-    
+def registration_page(request):
+    context = {
+        
+    }
+    return render(request, 'registration_page.html', context)
+
+def registration(request):
+    errors = User.objects.validate(request.POST)
+    if errors:
+        for field, value in errors.itmes():
+            messages.error(request, value, extra_tags='register')
+        return redirect('/registration_page')
+    new_user = User.objects.register(request.POST)
+    request.session['user_id'] = new_user.id
+    messages.success(request, "You have successfully registered, please login.", extra_tags='signin')
     return redirect('/')
 
 
-def registration(request):
-    return render(request, 'registration.html')
-
-
 def login(request):
-    result = User.objects.authenticate('email')
+    result = User.objects.authenticate(request.POST['email'], request.POST['password'])
     if result == False:
-        messages.error(request, "Invalid Email or Password", extra_tags='login')
+            messages.error(request, "Invalid Email or Password", extra_tags='log_in')
+
     else:
         user = User.objects.get(email=request.POST['email'])
         request.session['user_id'] = user.id
-        return render(request,'success.html')
-    return redirect('/login')
+        messages.success(request, "You've successfully logged in!", extra_tags='success')
+        return redirect('/task_list')
+    return redirect('/')
 
+def logout(request):
+    messages.success(request, "You have successfully logged out", extra_tags='logout')
+    request.session.clear()
+    return redirect('/')
 
 def success(request):
     return render(request, 'success.html')
@@ -35,12 +52,12 @@ def success(request):
 def create_user(request):
     errors = User.objects.basic_validator(request.POST)
     if errors:
-        for field,value in errors.items():
+        for field, value in errors.items():
             messages.error(request, value, extra_tags='register')
         return redirect('/registration')
     else:
-        user = User.objects.register(request.POST)
-        return render(request, 'create_task.html')
+        id = User.objects.register(request.POST['id'])
+        return render(request, 'task_list.html')
 
             
 def create_task(request):
@@ -89,3 +106,54 @@ def score(request):
     }
     return HttpResponse(context)
 
+
+def stop_tracking(request):
+    pass
+
+
+def test_session(request):
+    request.session.set_test_cookie()
+    return HttpResponse("Testing session cookie")
+
+
+def test_delete(request):
+    if request.session.test_cookie_worked():
+        request.session.delete_test_cookie()
+        response= HttpResponse("Cookie test passed")
+    else: 
+        response= HttpResponse("Cookie test failed")
+    return response
+
+
+def save_session_data(request):
+    # set new data
+    request.session['id'] = 1
+    request.session['name'] = 'root'
+    request.session['password'] = 'rootpass'
+    return HttpResponse("Session Data Saved")
+
+
+def access_session_data(request):
+    response = ""
+    if request.session.get('id'):
+        response += "Id : {0} <br>".format(request.session.get('id'))
+    if request.session.get('name'):
+        response += "Name : {0} <br>".format(request.session.get('name'))
+    if request.session.get('password'):
+        response += "Password : {0} <br>".format(request.session.get('password'))
+
+    if not response:
+        return HttpResponse("No session data")
+    else:
+        return HttpResponse(response)
+
+
+def delete_session_data(request):
+    try:
+        del request.session['id']
+        del request.session['name']
+        del request.session['password']
+    except KeyError:
+        pass
+
+    return HttpResponse("Session Data cleared")

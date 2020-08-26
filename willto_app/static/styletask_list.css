@@ -1,20 +1,22 @@
 #wrapper {
-    background-color: #6889bb;
+    background-color: #2cb3f3;
     color: white;
     font-family: Menlo, monospace;
-    font-size: 16px;
     width: 100%;
-    min-height: 1000px;
-    padding-top: 50px;
+    min-height: 1500px;
+    padding-top: 25px;
+}
+
+.container {
+    display: block;
+    width: 100%;
+    margin: auto;
 }
 
 h2{
     margin-left: 1325px;
-    font-size: 48px;
-}
-
-.container {
-    overflow-x: auto;
+    font-size: 36px;
+    justify: center;
 }
 
 table {
@@ -24,21 +26,34 @@ table {
     border-collapse: collapse;
     margin-left: 75px;
 }
+#haveToTable caption {
+    font-size: 22px;
+    font-style: italic;
+    font-weight: bold; 
+}
 
 #needToTable {
     margin-top: 25px;
 }
 
+#needToTable caption {
+    font-size: 22px;
+    font-style: italic;
+    font-weight: bold;
+}
+
 #wantToTable {
     margin-top: 25px;
 }
-caption {
-    font-size: 36px;
+#wantToTable caption {
+    font-size: 22px;
+    font-style: italic;
+    font-weight: bold;
 }
 
 th {
     height: 35px;
-    font-size: 26px;
+    font-size: 20px;
     font-style: bold;
 }
 

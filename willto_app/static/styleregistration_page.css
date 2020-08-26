@@ -6,13 +6,6 @@
     padding-top: 25px;
 }
 
-h1 { 
-    color: #ffffff;
-    display: block;
-    margin: auto;
-    width: 20%;
-}
-
 img {
     display: block;
     width: 30%;
@@ -22,40 +15,37 @@ img {
 }
 
 h2 {
-    font-size: 36px;
+    font-size: 24px;
     margin-left: 10px;
 }
 
-.registration {
+.main {
     display: block;
+    width: 50%;
     margin: auto;
-    width: 45%;
-    font-size: 24px;
-    color: white;
-    padding: 10px;
 }
 
 .form-group {
     column-count: 2;
-    font-size: 24px;
+    font-size: 18px;
     color: white;
 }
 
 label {
     display: block;
-    margin: auto;
+    margin: 5px auto;
 }
 input {
-    width: 100%;
-    margin: 10px 0px 10px 0px;
-    padding: 10px 0px 10px 0px;
+    width: 80%;
+    margin: 5px auto;
+    padding: 10px 5px 10px 5px;
 }
 
 button {
     background-color: #033678;
     color: #ffffff;
     padding: 5px 10px 5px 10px;
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 20px;
     margin-left: 400px;
 }

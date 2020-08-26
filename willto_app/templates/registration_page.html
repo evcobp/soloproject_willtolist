@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Register</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'styleregistration.css' %}">
-  </head>
-  <body>
-   {% if messages %}
-    <ul class="messages">    
-        {% for message in messages %}
-            {% if 'register' in message.extra_tags %}    
-            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endif %}  
-        {% endfor %}
-    </ul>
-    {% endif %} 
-    <div id="wrapper">
-        <h1>Create Your Account.</h1>
-        <img src="static/img/S5_Puzzle_Pieces.jpg">
-            <div class="registration">
-                <form action="/create_user" method="post" class="postData">
+    <link rel="stylesheet" href="{% static 'styleregistration_page.css' %}">
+</head>
+    <body>
+        <div id="wrapper">
+            <img src="static/img/S5_Puzzle_Pieces.jpg">
+            <div class="main">
+                <h2>Create Your Account</h2>
+                {% if messages %}
+                <ul class="messages">    
+                    {% for message in messages %}
+                    {% if 'register' in message.extra_tags %}    
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endif %}  
+                    {% endfor %}
+                </ul>
+                {% endif %} 
+                <form action="{% url 'registration' %}" method="post">
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="first_name">First Name:</label>
@@ -47,9 +47,9 @@
                         <label for="confirm_password">Confirm Password:</label>
                         <input type="text" name="confirm_password" id="confirm_password">
                     </div>
-                    <button type="submit">Register</button>
+                        <button type="submit">Register</button>
                 </form>
             </div>
-    </div>
-</body>
+        </div>
+    </body>
 </html>
