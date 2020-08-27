@@ -70,7 +70,7 @@ class User(models.Model):
     
 
 class TaskManager(models.Manager):
-    def create_task(request, task_form):
+    def create(request, task_form):
         return Task.objects.create(
             task_name=task_form['task_name'],
             due_date=task_form['due_date'],
@@ -102,12 +102,12 @@ class Task(models.Model):
     question_three = models.IntegerField(default = 1, validators=[MaxValueValidator(10), MinValueValidator(1)])
     question_four = models.IntegerField(default = 1, validators=[MaxValueValidator(10), MinValueValidator(1)])
     question_five = models.IntegerField(default = 1, validators=[MaxValueValidator(10), MinValueValidator(1)])
-    score = models.IntegerField(default='blank')
+    score = models.IntegerField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
-    #ADD TASKMANAGER
-    #CREATE TASKS IN THE MODELS
+    
+    objects = TaskManager()
     
     def __str__(self):
         return f"{self.task_name} {self.notes} {self.score}"

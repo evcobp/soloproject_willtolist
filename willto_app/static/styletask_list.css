@@ -17,7 +17,7 @@ h2{
     display: block;
     text-align: right;
     font-size: 36px;
-    margin: auto;
+    margin: auto 350px;
 }
 
 table {
@@ -83,14 +83,10 @@ tr > td > input {
     height: 20px;
 }
 
-.buttons {
-    display: block;
-    margin: auto;
-}
-
 #new_task_button {
+    margin-top: 30px;
+    margin-left: 73%;
     background-color: white;
-    margin: 50px auto;
     padding: 5px 10px 5px 10px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
@@ -102,8 +98,9 @@ tr > td > input {
 }
 
 #logout_button {
+    margin-top: 30px;
+    margin-left: 75%;
     background-color: white;
-    margin: 10px auto;
     padding: 5px 10px 5px 10px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }

@@ -25,9 +25,9 @@
           </script>
           <div class='tasks'>
             <table>
-              <form action='create_task' method='post' name="task_form">
+              <form action='{% url 'task_list_page' %} method='post' name="task_form">
               {% csrf_token %}
-              <tr> 
+              <tr>  
                 <th>
                   <label for="task_name">Task:</label>
                 </th>

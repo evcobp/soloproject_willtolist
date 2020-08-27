@@ -11,6 +11,7 @@
       <div id="wrapper">
         <div class="container">
           <h2>Your Will To List</h2>
+          <p>{{ task_name }}</p>
           <table id="haveToTable" style="width:75%">
             <caption>Have To</caption>
             <tr>
@@ -74,11 +75,9 @@
             </tr>
             
           </table>
+          <button id="new_task_button"><a href="/create_task">Create Task</a></button>
+          <button id="logout_button"><a href="/logout">Logout</a></button>
         </div>
-            <div class="buttons">
-              <button id="new_task_button"><a href="/new_task">Create Task</a></button>
-              <button id="logout_button"><a href="/logout">Logout</a></button>
-            </div>
       </div>
   </body>
 </html>

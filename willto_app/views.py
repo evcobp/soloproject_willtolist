@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
 from willto_app.models import User, Task
 from django.contrib import messages
-from django.utils.datastructures import MultiValueDictKeyError
 import bcrypt
 
 # Create your views here.
@@ -38,7 +37,7 @@ def login(request):
         user = User.objects.get(email=request.POST['email'])
         request.session['user_id'] = user.id
         messages.success(request, "You've successfully logged in!", extra_tags='success')
-        return redirect('/task_list')
+        return redirect('/task_list_page')
     return redirect('/')
 
 def logout(request):
@@ -61,50 +60,46 @@ def create_user(request):
         return render(request, 'task_list.html')
 
             
-#def create_task(request):
-    #return Task.objects.create(
-        #task_name= 'task_name'], 
-        #due_date= request.POST['due_date'], 
-        #notes= request.POST['notes'],
-        #question_one=request.POST['question_one'],
-        #question_two=request.POST['question_two'],
-        #question_three=request.POST['question_three'],
-        #question_four=request.POST['question_four'],
-        #question_five=request.POST['question_five']
-    #)
-    
-    return render(request,'task_list.html')
+
+def create(request, task_form):
+    return Task.objects.create(
+        task_name=task_form['task_name'],
+        due_date=task_form['due_date'],
+        notes=task_form['notes'],
+        question_one=task_form['question_one'],
+        question_two=task_form['question_two'],
+        question_three=task_form['question_three'],
+        question_four=task_form['question_four'],
+        question_five=task_form['question_five'],
+    )
+    def score(request):
+        questions = [Task.question_one, Task.question_two, Task.question_three,
+                    Task.question_four, Task.question_five]
+        for question in questions:
+            score = sum(questions[0:4])
+            return score
+        
+    def update_score(request):
+        thistask = self.create_task
+        task_score = thistask.score
+        task_score.save()
+            
+
+def create_task(request):
+    pass
 
 
 def delete_task(request):
     pass
 
-    
-def new_task(request):
-    new_task = Task.objects.last()
-    context = {
-            'task_name' : 'new_task.task_name',
-            'due_date' : 'new_task.due-date',
-            'notes' : 'new_task.notes'
-        }
-    return render(request,'new_task.html', context)
 
 
-def task_list(request):
+def task_list_page(request):
     context = {
         "all_tasks": Task.objects.all()
     }
     return render(request,'task_list.html', context)
 
-
-def task_questions(request):
-    active_task= Task.objects.last()
-    context = {
-        'show_task': active_task.task_name,
-        'show_due_date': active_task.due_date,
-        'show_notes': active_task.notes
-    }
-    return render(request,'task_questions.html', context)
 
 
 def score(request):
