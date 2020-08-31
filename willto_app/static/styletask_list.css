@@ -1,20 +1,23 @@
 #wrapper {
-    background-color: #6889bb;
+    background-color: #2cb3f3;
     color: white;
     font-family: Menlo, monospace;
-    font-size: 16px;
     width: 100%;
-    min-height: 1000px;
-    padding-top: 50px;
-}
-
-h2{
-    margin-left: 1325px;
-    font-size: 48px;
+    min-height: 1500px;
+    padding-top: 25px;
 }
 
 .container {
-    overflow-x: auto;
+    display: block;
+    width: 90%;
+    margin: auto;
+}
+
+h2{
+    display: block;
+    text-align: right;
+    font-size: 36px;
+    margin: auto 350px;
 }
 
 table {
@@ -23,23 +26,36 @@ table {
     border: 3px solid #ffffff;
     border-collapse: collapse;
     margin-left: 75px;
+    margin-top: 50px;
+}
+
+#haveToTable caption {
+    font-size: 22px;
+    font-weight: bold; 
 }
 
 #needToTable {
     margin-top: 25px;
 }
 
+#needToTable caption {
+    font-size: 22px;
+    font-weight: bold;
+}
+
 #wantToTable {
     margin-top: 25px;
 }
-caption {
-    font-size: 36px;
+
+#wantToTable caption {
+    font-size: 22px;
+    font-weight: bold;
 }
 
 th {
     height: 35px;
-    font-size: 26px;
-    font-style: bold;
+    font-size: 18px;
+    font-style: italic;
 }
 
 tr td{
@@ -67,29 +83,30 @@ tr > td > input {
     height: 20px;
 }
 
-
 #new_task_button {
-    background-color: #2e4663;
-    margin-top: 20px;
-    margin-left: 1500px;
-    padding: 7px 15px 7px 15px;
+    margin-top: 30px;
+    margin-left: 73%;
+    background-color: white;
+    padding: 5px 10px 5px 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 #new_task_button, a {
-    color: white;
+    color: #2cb3f3;
     font-size: 16px;
     text-decoration: none;
 }
 
 #logout_button {
-    background-color: #2e4663;
-    margin-top: 20px;
-    margin-left: 1500px;
-    padding: 7px 15px 7px 15px;
+    margin-top: 30px;
+    margin-left: 75%;
+    background-color: white;
+    padding: 5px 10px 5px 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 #logout_button, a {
-    color: white;
+    color: #2cb3f3;
     font-size: 16px;
     text-decoration: none;
 }
