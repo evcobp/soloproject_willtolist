@@ -2,10 +2,10 @@
     background-color: #2cb3f3;
     color: white;
     font-family: Menlo, monospace;
-    font-size: 16px;
+    font-size: 18px;
     width: 100%;
     min-height: 2250px;
-    padding-top: 50px;
+    padding-top: 25px;
 }
 
 img {
@@ -45,6 +45,12 @@ h5 {
     margin-left: 10px; 
 }
 
+.tasks {
+    display: block;
+    width: 70%;
+    margin: auto;
+}
+
 table {
     display: block;
     margin: auto;
@@ -60,64 +66,57 @@ table > label {
     color: #ffffff;
     padding: 5px 10px 5px 10px;
     margin-top: 10px;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .questions {
-    margin-top: 50px;
-    height: 475px;
-    border: none;
-    box-sizing: border-box;
-    margin-left: 0px;
-    padding: 5px 40px 5px 40px;
-}
-
-.questions p {
-    margin-left: 475px;
-    line-height: 1.5;
+    display: block;
+    width: 100%;
+    margin: 0px 600px 0px 600px;
 }
 
 .questions label {
-    font-size: 1.15em;
+    margin: 0px 150px 0px 775px;
+    font-size: 18px;
 }
 
 .questions input {
     width: 5%;
-    margin-left: 1350px;
-    font-size: 16px;
+    margin: 0px 250px 0px 0px;
+    font-size: 18px;
     padding: 3px 0px 3px 0px;
 }
 
 #question_submit_button {
+    display: block;
+    margin: 20px auto;
     background-color: #2e4663;
     padding: 7px 15px 7px 15px;
     color: #ffffff;
     text-decoration: none;
-    font-size: 16px;
-    margin-top: 35px;
-    margin-left: 1350px;
     border: 1px solid #ffffff;
 }
 
 #question_submit_button a {
     color: #ffffff;
-    font-size: 16px;
+    font-size: 18px;
     text-decoration: none;
 }
 
 #view_tasks_button {
+    display: block;
+    margin: 20px auto;
+    font-size: 16px;
     background-color: #2e4663;
     padding: 7px 15px 7px 15px;
     color: #ffffff;
     text-decoration: none;
-    margin-top: 35px;
-    margin-left: 1350px;
     border: 1px solid #ffffff;
 } 
 
 #view_tasks_button a {
     color: #ffffff;
-    font-size: 16px;
+    font-size: 18px;
     text-decoration: none;
 }
 
@@ -126,13 +125,12 @@ table > label {
     padding: 7px 15px 7px 15px;
     color: #ffffff;
     text-decoration: none;
-    margin-top: 35px;
-    margin-left: 1350px;
+    margin: 20px 0px 0px 1600px;
     border: 1px solid #ffffff;
 } 
 
 #logout_button a {
     color: #ffffff;
-    font-size: 16px;
+    font-size: 18px;
     text-decoration: none;
 }

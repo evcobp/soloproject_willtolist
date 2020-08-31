@@ -67,30 +67,7 @@ class User(models.Model):
     
     def __str__(self):
         return f"{self.first_name} {self.last_name} {self.username} {self.email}"
-    
 
-class TaskManager(models.Manager):
-    def create(request, task_form):
-        return Task.objects.create(
-            task_name=task_form['task_name'],
-            due_date=task_form['due_date'],
-            notes=task_form['notes'],
-            question_one=task_form['question_one'],
-            question_two=task_form['question_two'],
-            question_three=task_form['question_three'],
-            question_four=task_form['question_four'],
-            question_five=task_form['question_five'],
-        )
-        def score(request):
-            questions = [Task.question_one, Task.question_two, Task.question_three,
-                    Task.question_four, Task.question_five]
-            for question in questions:
-                score = sum(questions[0:4])
-                return score
-        def update_score(request):
-            thistask = self.create_task
-            task_score = thistask.score
-            task_score.save()
         
 class Task(models.Model):
     task_name = models.TextField()
@@ -102,12 +79,8 @@ class Task(models.Model):
     question_three = models.IntegerField(default = 1, validators=[MaxValueValidator(10), MinValueValidator(1)])
     question_four = models.IntegerField(default = 1, validators=[MaxValueValidator(10), MinValueValidator(1)])
     question_five = models.IntegerField(default = 1, validators=[MaxValueValidator(10), MinValueValidator(1)])
-    score = models.IntegerField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
-    
-    objects = TaskManager()
     
     def __str__(self):
         return f"{self.task_name} {self.notes} {self.score}"
